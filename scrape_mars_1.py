@@ -39,7 +39,7 @@ def scrape_mars_data():
     table_df = tables[0]
     panda_table = pd.DataFrame(table_df)
     panda_table.to_html('mars_facts_table.html')
-
+    table = table_df.to_html('mars_facts_table.html')
     # visit astrology site and grab title and img link to each mars hemisphere
     
     astrogeology_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -81,6 +81,7 @@ def scrape_mars_data():
     mars_data = {
     "title": new_title,
     "paragraph": paragraph,
+    "table": table,
     "featured_image_url": featured_image_url,
     "hemisphere_image_urls": hemisphere_image_urls
     }
