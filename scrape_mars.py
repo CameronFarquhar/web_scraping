@@ -15,7 +15,7 @@ import pandas as pd
 
 # In[ ]:
 
-
+def scrape_mars_data():
 
 
 
@@ -36,8 +36,6 @@ soup = BeautifulSoup(response.text, 'lxml')
 # In[4]:
 
 
-print(soup.prettify())
-
 
 # In[5]:
 
@@ -46,8 +44,6 @@ results_t = soup.find('div', class_='content_title')
 
 news_title = results_t.text.strip('\n')
 
-news_title
-
 
 # In[6]:
 
@@ -55,8 +51,6 @@ news_title
 results_p = soup.find('div', class_="rollover_description_inner")
 
 news_p = results_p.text.strip('\n')
-
-news_p
 
 
 # In[7]:
@@ -88,7 +82,6 @@ soup = BeautifulSoup(html, 'html.parser')
 mars_source_image = soup.find('img', class_='fancybox-image')["src"]
 
 featured_image_url = f"https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{mars_source_image}"
-featured_image_url
 
 
 # In[11]:
@@ -101,14 +94,12 @@ mars_facts_url = "https://space-facts.com/mars/"
 
 
 tables = pd.read_html(mars_facts_url)
-tables
 
 
 # In[13]:
 
 
 table_df = tables[0]
-table_df
 
 
 # In[14]:
