@@ -13,7 +13,7 @@ def scrape_mars_data():
     url_news = "https://mars.nasa.gov/news"
     browser.visit(url_news)
 
-    title = browser.find_by_css('div.content_title a').text
+    new_title = browser.find_by_css('div.content_title a').text
 
     paragraph = browser.find_by_css('div.article_teaser_body').text
 
@@ -79,7 +79,7 @@ def scrape_mars_data():
     browser.quit()
 
     mars_data = {
-    "title": title,
+    "title": new_title,
     "paragraph": paragraph,
     "featured_image_url": featured_image_url,
     "hemisphere_image_urls": hemisphere_image_urls
